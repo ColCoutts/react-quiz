@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Shape.css';
 
 function Shape({ text, color, backgroundColor }) {
+  const styles = {
+    width: '100px',
+    height: '100px',
+    backgroundColor,
+    color
+  };
   return (
-    <div className={styles.Shape} style={{ backgroundColor: backgroundColor }}>
-      <h1 style={{ color }}>{text}</h1>
+    <div style={styles}>
+      <p>{text}</p>
     </div>
   );
 }

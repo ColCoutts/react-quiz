@@ -6,8 +6,8 @@ import ColorSelector from '../components/ColorSelector';
 export default class NameTag extends PureComponent {
   state = {
     text: '',
-    color: 'black',
-    backgroundColor: ''
+    color: '#000000',
+    backgroundColor: '#FF0000'
   }
 
   handleChange = ({ target }) => {
@@ -16,13 +16,22 @@ export default class NameTag extends PureComponent {
 
   render() {
     const { text, color, backgroundColor } = this.state;
-
     return (
       <>
-        <ColorSelector color={color} backgroundColor={backgroundColor} onChange={this.handleChange}/>
-        <TextSelector text={text} style={color} onChange={this.handleChange}/>
-        <Shape text={text} />
-        <pre style={{ color }}>{text}</pre>
+        <TextSelector
+          text={text}
+          handleChange={this.handleChange}
+        />
+        <ColorSelector 
+          color={color}
+          backgroundColor={backgroundColor}
+          handleChange={this.handleChange}
+        />
+        <Shape
+          text={text}
+          color={color}
+          backgroundColor={backgroundColor}
+        />
       </>
     );
   }
